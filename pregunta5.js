@@ -7,7 +7,7 @@
  * 
  * Ademas se requiere que el nombre del archivo sea reemplazado por el nombre de la cerveza por ejemplo para Darkness sera:
  * https://tecnoshare.sharepoint.com/sites/beer/lnxbIV/darkness.png
- * 
+ *  
  
  /*
   Beers
@@ -20,3 +20,18 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+function UpdateData(beers){
+  return beers
+  .map(beer=> ({name: beer.name,
+                abv:  beer.abv,
+                label: changeUrl(beer.label,beer.name),
+                type: beer.type}));
+}
+function changeUrl(label,name){
+  changeRepository(label);
+  return label;
+}
+function changeRepository(label){
+  return label.replace('https://s3.amazonaws.com/brewerydbapi/beer/', 'https://tecnoshare.sharepoint.com/sites/beer/' )
+}
+console.log(UpdateData(beers))

@@ -8,7 +8,7 @@ const even = function(numbers){
 }
 
 const odd = function(numbers){
-    return numbers.filter(num => Math.abs(num % 2) == 1);
+    return numbers.filter(num => num % 2 === 1);
 }
 
 // TESTS (no modificar)

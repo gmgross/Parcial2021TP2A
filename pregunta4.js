@@ -3,7 +3,7 @@
  * los descubrimientos de los inventores por ej. para Einstein 
  * ['Teoría de la relatividad especial','Equivalencia entre masa y energía','Teoría de la relatividad general']
  * 
- */
+ */ 
 
  const inventors = [
     { first: 'Albert', last: 'Einstein', year: 1879 },
@@ -22,11 +22,19 @@
    * @param {*} inventors 
    */
   function addDiscoveries(inventor, discoveries, inventors){
-      
+      //let inventorBuscado = inventors.find(inv => inv.last === inventor)
+      //inventorBuscado.discoveries = discoveries;      
+      //return inventors;
+      return inventors
+      .filter(inv=> inv.last == inventor)
+      .map(
+        inv => ({...inv, discoveries: discoveries}))
+
+
   }
 
-  console.log(addDescubrimientos('Einstein', 
+  console.log(addDiscoveries('Einstein', 
   ['Teoría de la relatividad especial','Equivalencia entre masa y energía','Teoría de la relatividad general'], inventors
   ));
-
+  
   

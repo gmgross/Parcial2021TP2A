@@ -4,7 +4,7 @@
  * el articulo (shoes, socks, shirts, pants) y una cantidad. Si la cantidad es menor o igual a la cantidad 
  * del inventario, se actualiza el objeto disminuyendo la cantidad y se retorna el codigo 200 que significa 'Venta exitosa'. 
  * Si la cantidad es mayor al stock existente, no se actualiza el objeto y se retorna el codigo 500 'Imposible de realizar la venta'
- * 
+ *  
  */
 
  const inventory = {
@@ -15,7 +15,12 @@
   }
 
 const sale = function (article, cant){
-  
+  if ( inventory[article] >= cant) {
+    inventory[article] -= cant;
+    return 200;
+   } else {
+     return 500;
+   }
 }
 
 // TESTS (no modificar)
